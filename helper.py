@@ -4,6 +4,8 @@
 import torch
 import requests
 import numpy as np
+import matplotlib.pyplt as plt
+
 from PIL import Image
 from io import BytesIO
 from torch import optim
