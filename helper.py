@@ -108,7 +108,10 @@ def style_transfer(content, style, model, style_weights, optimizer=optim.Adam, l
   model=model.to(device)
   content=content.to(device)
   style=style.to(device)
-  target = target or content.clone().requires_grad_(True)
+  
+  if target is None:
+    target = content.clone().requires_grad_(True)
+
   target = target.to(device)
   print('Target image initialised!')
 
