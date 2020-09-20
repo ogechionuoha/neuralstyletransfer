@@ -6,6 +6,7 @@ import requests
 import numpy as np
 from PIL import Image
 from io import BytesIO
+from torch import optim
 from torchvision import transforms 
 
 
