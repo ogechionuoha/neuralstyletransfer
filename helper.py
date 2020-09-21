@@ -92,12 +92,21 @@ def forwardpass(image, model, layers=None):
             
     return outputs
 
-def show_results(content, style, target):
-  # display content and final, target image
-  fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(10, 10))
+def show_images(content, style, target = None):
+  # display content and final, target image if it exists
+
+  
+  if target:
+      fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(10, 10))  
+  else:
+      fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 12))
+    
   ax1.imshow(to_img(content))
   ax2.imshow(to_img(style))
-  ax3.imshow(to_img(target))
+
+  if target:
+    ax3.imshow(to_img(target))
+    
 
 def style_transfer(content, style, model, style_weights, optimizer=optim.Adam, lr=0.003, epochs=5000, 
                    show_every=5000, content_weight = 1, style_weight = 1e6, device='cpu', target=None):
