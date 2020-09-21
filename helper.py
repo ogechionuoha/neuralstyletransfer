@@ -106,7 +106,7 @@ def show_images(content, style, target = None):
 
   if target:
     ax3.imshow(to_img(target))
-    
+
 
 def style_transfer(content, style, model, style_weights, optimizer=optim.Adam, lr=0.003, epochs=5000, 
                    show_every=5000, content_weight = 1, style_weight = 1e6, device='cpu', target=None):
@@ -165,7 +165,7 @@ def style_transfer(content, style, model, style_weights, optimizer=optim.Adam, l
     
     # display intermediate images and print the loss
     if epoch % show_every == 0:
-        print(f'Epoch {epoch} Total loss: {total_loss.item()}')
+        print(f'Target image after epoch {epoch}')
         plt.imshow(to_img(target))
         plt.show()
   
