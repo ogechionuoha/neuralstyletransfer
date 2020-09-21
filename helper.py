@@ -96,7 +96,7 @@ def show_images(content, style, target = None):
   # display content and final, target image if it exists
 
   
-  if target:
+  if target is not None:
       fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(10, 10))  
   else:
       fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 12))
@@ -104,7 +104,7 @@ def show_images(content, style, target = None):
   ax1.imshow(to_img(content))
   ax2.imshow(to_img(style))
 
-  if target:
+  if target is not None:
     ax3.imshow(to_img(target))
 
 
