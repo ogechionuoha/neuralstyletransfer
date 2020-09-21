@@ -93,7 +93,8 @@ def forwardpass(image, model, layers=None):
     return outputs
 
 def show_images(content, style, target = None):
-  # display content and final, target image if it exists
+  '''
+  display content and final, target image if it exists'''
 
   
   if target is not None:
@@ -111,7 +112,19 @@ def show_images(content, style, target = None):
 def style_transfer(content, style, model, style_weights, optimizer=optim.Adam, lr=0.003, epochs=5000, 
                    show_every=5000, content_weight = 1, style_weight = 1e6, device='cpu', target=None):
   '''
-  Train a target image to embody the details of content and the style 
+  Train a target image to embody the details of content and the style images.
+
+  Params:
+    content: (tensor) Content image
+    style: (tensor) Style image
+    style_weights: weights to be applied to the gram of each layer
+    optimizer: (func) pytorch optimiser 
+    lr: (float) learning rate for optimiser
+    epochs: (int) number of training steps
+    show_every: (int) number of steps before showing an intermediary output
+    content_weight: (float) constant value used applied to content loss
+    style_weight: (float) constant value used applied to style loss
+    target: (tensor) initial value of target image, if None it will be initialised to content.
   '''
 
   model=model.to(device)
